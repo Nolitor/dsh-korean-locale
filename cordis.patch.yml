@@ -1,0 +1,10 @@
+# Korean language pack bundle layer.
+#
+# This package is the bundle: listing it in a profile's dsh.profile.bundles
+# applies this row. The row only mounts the inert Host half; the browser half
+# is discovered from package.json#dsh.client and served by the client module
+# system. Never add a second row for ./client — browser code must not run in
+# the Host process.
+- insert:
+    - id: korean-locale
+      name: '@nolit/dsh-korean-locale'

@@ -1,0 +1,91 @@
+{
+  "name": "@nolit/dsh-korean-locale",
+  "version": "0.2.0",
+  "private": false,
+  "description": "Korean (ko) language pack for the DeepSeek Harness web GUI: registers 한국어, translates every shipped client dictionary, and applies a scoped Korean font stack.",
+  "icon": "./icon.svg",
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "i18n",
+    "localization",
+    "korean",
+    "ko",
+    "locale",
+    "language-pack"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linuxsung/dsh-korean-locale.git"
+  },
+  "homepage": "https://github.com/linuxsung/dsh-korean-locale#readme",
+  "bugs": {
+    "url": "https://github.com/linuxsung/dsh-korean-locale/issues"
+  },
+  "license": "MIT",
+  "author": "nolit",
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./client": "./lib/client.js",
+    "./icon": "./icon.svg",
+    "./dictionaries": "./data/ko.json",
+    "./typography.css": "./styles/typography.css",
+    "./coverage": "./data/coverage.json",
+    "./locale/*.json": "./locale/*.json",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "lib/types/index.d.ts",
+    "data/ko.json",
+    "data/coverage.json",
+    "styles/typography.css",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "market/index.json",
+    "market/icons/*.svg",
+    "scripts/build.mjs",
+    "scripts/verify.mjs",
+    "README.md",
+    "README.ko.md",
+    "LICENSE",
+    "NOTICE",
+    "package.json"
+  ],
+  "engines": {
+    "node": ">=24",
+    "dsh": ">=0.2.1-rc.2 <0.3.0"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-locale"
+      ]
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "verify": "node scripts/verify.mjs",
+    "test": "node scripts/verify.mjs",
+    "prepublishOnly": "node scripts/build.mjs && node scripts/verify.mjs"
+  }
+}
+

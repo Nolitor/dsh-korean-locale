@@ -1,0 +1,83 @@
+{
+  "format": 1,
+  "title": {
+    "en": "Nolit DSH Plugins",
+    "ko": "노릿 DSH 플러그인"
+  },
+  "description": {
+    "en": "Local-first extensions for DeepSeek Harness.",
+    "ko": "DeepSeek Harness용 로컬 우선 확장."
+  },
+  "metadata": {
+    "categories": {
+      "localization": {
+        "title": {
+          "en": "Localization",
+          "ko": "현지화"
+        }
+      }
+    },
+    "labels": {
+      "ui": {
+        "title": {
+          "en": "UI",
+          "ko": "UI"
+        }
+      },
+      "korean": {
+        "title": {
+          "en": "Korean",
+          "ko": "한국어"
+        }
+      }
+    },
+    "sortKeys": {}
+  },
+  "plugins": [
+    {
+      "name": "@nolit/dsh-korean-locale",
+      "title": {
+        "en": "Korean Language Pack",
+        "ko": "한국어 언어팩"
+      },
+      "description": {
+        "en": "Adds 한국어 to Settings → General → Language, translates every shipped DeepSeek Harness web GUI dictionary, and applies a scoped Korean font stack.",
+        "ko": "설정 → 일반 → 언어에 한국어를 추가하고 DeepSeek Harness 웹 GUI의 기본 제공 사전을 번역하며, 한국어 전용 폰트 스택을 적용합니다."
+      },
+      "icon": "icons/korean-locale.svg",
+      "author": "nolit",
+      "homepage": "https://github.com/linuxsung/dsh-korean-locale#readme",
+      "repository": {
+        "url": "https://github.com/linuxsung/dsh-korean-locale"
+      },
+      "metadata": {
+        "category": "localization",
+        "keywords": [
+          "i18n",
+          "korean",
+          "locale",
+          "language-pack",
+          "localization"
+        ],
+        "labels": [
+          "ui",
+          "korean"
+        ],
+        "sortKeys": {}
+      },
+      "versions": [
+        {
+          "version": "0.2.0",
+          "publishTimestamp": 1792689217,
+          "source": {
+            "type": "npm"
+          },
+          "engines": {
+            "dsh": ">=0.2.1-rc.2 <0.3.0"
+          }
+        }
+      ]
+    }
+  ]
+}
+

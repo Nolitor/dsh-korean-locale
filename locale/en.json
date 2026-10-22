@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Korean Language Pack",
+    "description": "Adds 한국어 to Settings → General → Language, translates the shipped DeepSeek Harness web GUI dictionaries, and applies a scoped Korean font stack."
+  }
+}

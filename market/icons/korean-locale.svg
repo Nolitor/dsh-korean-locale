@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Korean language pack">
+  <rect x="2.75" y="3.75" width="18.5" height="14" rx="3"/>
+  <path d="M7.4 17.9 5.8 21v-3.1"/>
+  <text x="12" y="14.1" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="8.4" font-weight="600" fill="currentColor" stroke="none">한</text>
+</svg>

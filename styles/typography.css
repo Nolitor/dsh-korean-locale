@@ -1,0 +1,27 @@
+/*
+ * Korean typography — scoped to the active Korean locale.
+ *
+ * DSH resolves body text through --dsw-font-family, which consumes
+ * --dsh-font-family-text as the settings seat. Code and terminal roles use
+ * separate variables (--ds-font-family-code, --dsh-font-family-terminal), so
+ * this rule cannot change monospace surfaces.
+ *
+ * The selector follows the <html lang> value maintained by the locale plugin,
+ * so switching to en or zh-CN deactivates the rule without any JavaScript.
+ * It deliberately avoids a priority override, so an explicit theme font-family
+ * setting stays authoritative.
+ */
+html:lang(ko) body {
+  --dsh-font-family-text:
+    "Pretendard Variable",
+    Pretendard,
+    "SUIT Variable",
+    SUIT,
+    "Apple SD Gothic Neo",
+    "Malgun Gothic",
+    "Noto Sans KR",
+    "Noto Sans CJK KR",
+    "Nanum Gothic",
+    system-ui,
+    sans-serif;
+}

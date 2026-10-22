@@ -1,0 +1,23 @@
+# NOTICE
+
+## Korean dictionaries
+
+`data/ko.json` and the generated `lib/client.js` contain Korean UI copy derived
+from the DeepSeek Harness `feat/korean-locale` branch:
+
+- Repository: https://github.com/v9bm4pfnz6-hue/deepseek-harness
+- Branch: `feat/korean-locale`
+- Commit: `1091f232fda9a97c525d1553d59f0fd2374c9b3e`
+- Base version: DSH `0.2.1-rc.2`
+- Branch author: dylanchoi94
+- Proposal: https://github.com/deepseek-ai/deepseek-harness/discussions/10687
+- Upstream license: MIT (Copyright (c) 2026 DeepSeek)
+
+The extraction reads data modules only; no branch code is executed. Key sets
+and `{placeholder}` tokens are checked against the corresponding English
+dictionaries in `data/coverage.json` (zero mismatches).
+
+## This package
+
+The plugin code, package metadata, build pipeline, and documentation are
+released under the MIT license in `LICENSE`.
