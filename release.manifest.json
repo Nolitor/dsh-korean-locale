@@ -1,0 +1,36 @@
+{
+  "$schema": "../../release-harness/schema/release.manifest.schema.json",
+  "specVersion": "1.0",
+  "project": {
+    "id": "dsh-korean-locale",
+    "displayName": "DSH Korean Locale",
+    "versionSource": { "type": "package.json", "path": "package.json" },
+    "license": "MIT",
+    "homepage": "https://github.com/linuxsung/dsh-korean-locale#readme",
+    "repository": "https://github.com/linuxsung/dsh-korean-locale",
+    "description": {
+      "en": "Korean language pack for DeepSeek Harness: 65 dictionaries, scoped Pretendard typography, marketplace-ready.",
+      "ko": "딥시크 하네스 한국어 언어팩: 65개 사전, Pretendard 타이포그래피, 마켓 등록 지원."
+    }
+  },
+  "source": {
+    "root": "."
+  },
+  "artifacts": [
+    { "name": "dsh-korean-locale-{{version}}.zip", "format": "zip", "from": "." }
+  ],
+  "docs": {
+    "enabled": false
+  },
+  "publish": {
+    "github": {
+      "owner": "linuxsung",
+      "repo": "dsh-korean-locale",
+      "visibility": "public",
+      "topics": ["deepseek-harness", "dsh", "i18n", "korean", "language-pack", "typography"],
+      "release": {
+        "notes": "Korean language pack for DeepSeek Harness."
+      }
+    }
+  }
+}

@@ -44,7 +44,7 @@ dsh plugin --profile web add @nolit/dsh-korean-locale
 For a local checkout (this repository), link it instead:
 
 ```sh
-dsh plugin --profile web add link:C:/Users/nolit/Workspace/projects/dsh-workspace/dsh-korean-locale
+dsh plugin --profile web add link:<local-path>
 ```
 
 The command writes the dependency and selects the bundle in

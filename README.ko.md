@@ -40,7 +40,7 @@ dsh plugin --profile web add @nolit/dsh-korean-locale
 이 저장소의 로컬 체크아웃을 쓰는 경우:
 
 ```sh
-dsh plugin --profile web add link:C:/Users/nolit/Workspace/projects/dsh-workspace/dsh-korean-locale
+dsh plugin --profile web add link:<local-path>
 ```
 
 명령은 `~/.dsh/profiles/web/package.json`에 의존성과 번들을 기록합니다.
