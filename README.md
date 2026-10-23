@@ -1,6 +1,8 @@
 # Korean Language Pack for DeepSeek Harness
 
-> Status: active · v0.2.0 · Last updated: 2026-10-23 · DSH: 0.2.1-rc.2 · Upstream: [discussion #10687](https://github.com/deepseek-ai/deepseek-harness/discussions/10687)
+**English** · [한국어](README.ko.md)
+
+> Status: active · v0.2.2 · Last updated: 2026-10-23 · DSH: 0.2.1-rc.2 · Upstream: [discussion #10687](https://github.com/deepseek-ai/deepseek-harness/discussions/10687)
 
 ## Index
 
@@ -9,6 +11,7 @@
 | Overview | What the pack adds and how it fits DSH |
 | Install | Profile-local install, selection, uninstall |
 | Coverage | Shipped namespaces and known limits |
+| v0.2.2 font stack | Reload-safe Korean typography |
 | Typography | Korean font stack, scope, and monospace safety |
 | How it works | Public locale API, owned effects, stand-down guard |
 | Build and verify | Regenerate the browser half from the data |
@@ -93,33 +96,53 @@ Known limits:
   pack detects it in the catalog and stands down instead of competing for the
   same `(namespace, "ko")` registration.
 
+## v0.2.2 — font stack persistence
+
+The v0.2.1 stylesheet bound only `body`, so after a full reload the core token
+pass or the theme presenter could shadow the Korean stack. v0.2.2 binds both
+`--dsh-font-family-text` and `--dsw-font-family` at `:root:lang(ko)` and on
+`body`, applies the seat directly to body text, and leaves code and terminal
+seats untouched. An explicit Settings → Appearance font still wins because the
+rule uses no `!important`.
+
 ## Typography
 
 Korean mode applies one scoped stylesheet, `styles/typography.css`:
 
 ```css
-html:lang(ko) body {
-  --dsh-font-family-text:
-    "Pretendard Variable", Pretendard,
-    "SUIT Variable", SUIT,
-    "Apple SD Gothic Neo", "Malgun Gothic",
-    "Noto Sans KR", "Noto Sans CJK KR", "Nanum Gothic",
-    system-ui, sans-serif;
+:root:lang(ko),
+html:lang(ko),
+html[lang^="ko" i] {
+  --dsh-font-family-text: "Pretendard Variable", Pretendard, /* … */ system-ui, sans-serif;
+  --dsw-font-family: var(--dsh-font-family-text), var(--dsh-font-family-text-default);
+}
+
+:root:lang(ko) body,
+html:lang(ko) body,
+html[lang^="ko" i] body {
+  /* same seats, plus: */
+  font-family: var(--dsw-font-family);
 }
 ```
 
-- **Text seat only** — DSH resolves body text through `--dsh-font-family-text`.
-  Code, inline code, and terminal surfaces use separate
-  `--ds-font-family-code` / `--dsh-font-family-terminal` seats, so they keep
-  their monospace stacks.
+- **Both text seats bound** — DSH resolves body text through `--dsw-font-family`,
+  which the core token sheet builds on `body` from `--dsh-font-family-text`. The
+  rule binds both variables at the root and on `body`, so the post-reload core
+  token pass and the theme presenter cannot shadow the Korean stack. Text
+  controls (`input`, `contenteditable`) follow the same seat.
+- **Monospace preserved** — code, inline code, and terminal surfaces use separate
+  `--ds-font-family-code` / `--dsh-font-family-terminal` seats. The stylesheet
+  never references them and deliberately excludes `pre`, `code`, and `textarea`,
+  so they keep their monospace stacks.
 - **Language-scoped** — the selector follows `<html lang>`, which the locale
-  plugin maintains. Switching to English or Chinese deactivates the rule and
-  restores DSH's own stack exactly; no JavaScript listener is needed.
+  plugin maintains, and covers regional tags such as `ko-KR`. Switching to
+  English or Chinese deactivates the rule and restores DSH's own stack exactly;
+  no JavaScript listener is needed.
 - **No webfonts** — every family is a local system font. Nothing is downloaded
   or bundled beyond the CSS rule itself.
-- **User settings win** — the rule avoids a priority override, so an explicit
-  text font chosen in Settings → Appearance stays authoritative. Removing the
-  pack removes the style element with it.
+- **User settings win** — the theme presenter writes an explicit Settings font
+  as an inline custom property, which outranks the stylesheet; the rule uses no
+  `!important`. Removing the pack removes the style element with it.
 
 ## How it works
 

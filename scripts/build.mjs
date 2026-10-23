@@ -70,19 +70,29 @@ function validate(dicts, coverage) {
   return { namespaces: namespaces.length, keys }
 }
 
-/** Typography is text-seat only: no universal/code/terminal override and no !important. */
+/** Typography binds the text and text-seat variables only: no code/terminal seats and no !important. */
 function validateTypography(css) {
   const declarations = css.replace(/\/\*[\s\S]*?\*\//g, '')
-  if (!declarations.includes('html:lang(ko) body')) fail('typography must scope to html:lang(ko) body')
+  for (const selector of [':root:lang(ko)', 'html:lang(ko)', 'html[lang^="ko" i]', 'html:lang(ko) body']) {
+    if (!declarations.includes(selector)) fail(`typography must scope to ${selector}`)
+  }
   if (declarations.includes('!important')) fail('typography must not use !important')
-  if (/\bfont-family\s*:/u.test(declarations)) fail('typography must set the custom property, not font-family')
   if (/\b(pre|code|kbd|samp|textarea)\b/u.test(declarations)) fail('typography must not target code/terminal elements')
   if (/--ds-font-family-code|--dsh-font-family-code|--dsh-font-family-terminal/u.test(declarations)) {
     fail('typography must not touch code or terminal font seats')
   }
-  const properties = [...declarations.matchAll(/(--[a-z0-9-]+)\s*:/gu)].map((match) => match[1])
-  if (properties.length !== 1 || properties[0] !== '--dsh-font-family-text') {
-    fail(`typography must declare only --dsh-font-family-text (got ${properties.join(', ') || 'none'})`)
+  for (const match of declarations.matchAll(/(?<![\w-])font-family\s*:\s*([^;}]+)/gu)) {
+    if (match[1].trim() !== 'var(--dsw-font-family)') {
+      fail(`typography font-family must be var(--dsw-font-family) (got ${match[1].trim()})`)
+    }
+  }
+  const properties = [...new Set([...declarations.matchAll(/(--[a-z0-9-]+)\s*:/gu)].map((match) => match[1]))].sort()
+  const expected = ['--dsh-font-family-text', '--dsw-font-family']
+  if (properties.join(',') !== expected.join(',')) {
+    fail(`typography must declare only ${expected.join(' + ')} (got ${properties.join(', ') || 'none'})`)
+  }
+  if (!/--dsw-font-family\s*:\s*var\(--dsh-font-family-text\)/u.test(declarations)) {
+    fail('typography must bind --dsw-font-family to --dsh-font-family-text')
   }
   for (const family of ['"Pretendard Variable"', 'Pretendard', '"SUIT Variable"', 'SUIT', '"Apple SD Gothic Neo"', '"Malgun Gothic"']) {
     if (!declarations.includes(family)) fail(`typography stack is missing ${family}`)

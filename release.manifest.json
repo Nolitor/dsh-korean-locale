@@ -20,7 +20,9 @@
     { "name": "dsh-korean-locale-{{version}}.zip", "format": "zip", "from": "." }
   ],
   "docs": {
-    "enabled": false
+    "enabled": false,
+    "defaultLocale": "en",
+    "locales": ["en", "ko"]
   },
   "publish": {
     "github": {
@@ -29,7 +31,7 @@
       "visibility": "public",
       "topics": ["deepseek-harness", "dsh", "i18n", "korean", "language-pack", "typography"],
       "release": {
-        "notes": "Korean language pack for DeepSeek Harness."
+        "notes": "v0.2.2 fixes Korean font-stack persistence across reloads. The scoped stylesheet now binds both --dsh-font-family-text and --dsw-font-family at :root:lang(ko) and on body, applies the text seat directly to body text, and keeps code/terminal monospace seats and explicit Settings fonts authoritative. Docs follow the global standard: English README.md plus a reciprocal Korean README.ko.md."
       }
     }
   }

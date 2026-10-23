@@ -1,17 +1,23 @@
 /*
  * Korean typography — scoped to the active Korean locale.
  *
- * DSH resolves body text through --dsw-font-family, which consumes
- * --dsh-font-family-text as the settings seat. Code and terminal roles use
- * separate variables (--ds-font-family-code, --dsh-font-family-terminal), so
- * this rule cannot change monospace surfaces.
+ * DSH resolves body text through --dsw-font-family, which the core token sheet
+ * builds on body from --dsh-font-family-text and the built-in
+ * --dsh-font-family-text-default. Code and terminal roles use separate seats
+ * (--ds-font-family-code, --dsh-font-family-terminal), so this sheet cannot
+ * change monospace surfaces.
  *
- * The selector follows the <html lang> value maintained by the locale plugin,
- * so switching to en or zh-CN deactivates the rule without any JavaScript.
- * It deliberately avoids a priority override, so an explicit theme font-family
- * setting stays authoritative.
+ * The locale plugin owns <html lang>. These selectors cover plain "ko" and
+ * regional tags such as "ko-KR", and bind both seats at the root and on body:
+ * on a full reload the core token sheet and the theme presenter re-apply their
+ * body custom properties after the plugin stylesheet mounts, so a body-only
+ * declaration can be shadowed. A stylesheet rule keeps the Korean stack
+ * authoritative, while an inline font list written by the theme presenter for
+ * an explicit Settings font still wins — inline styles outrank selectors.
  */
-html:lang(ko) body {
+:root:lang(ko),
+html:lang(ko),
+html[lang^="ko" i] {
   --dsh-font-family-text:
     "Pretendard Variable",
     Pretendard,
@@ -24,4 +30,35 @@ html:lang(ko) body {
     "Nanum Gothic",
     system-ui,
     sans-serif;
+  --dsw-font-family: var(--dsh-font-family-text), var(--dsh-font-family-text-default);
+}
+
+:root:lang(ko) body,
+html:lang(ko) body,
+html[lang^="ko" i] body {
+  --dsh-font-family-text:
+    "Pretendard Variable",
+    Pretendard,
+    "SUIT Variable",
+    SUIT,
+    "Apple SD Gothic Neo",
+    "Malgun Gothic",
+    "Noto Sans KR",
+    "Noto Sans CJK KR",
+    "Nanum Gothic",
+    system-ui,
+    sans-serif;
+  --dsw-font-family: var(--dsh-font-family-text), var(--dsh-font-family-text-default);
+  font-family: var(--dsw-font-family);
+}
+
+/*
+ * Text controls keep the Korean stack even where the user agent applies its
+ * own form-control font. Textareas and code elements are deliberately absent:
+ * code blocks, inline code, and the terminal keep their monospace seats.
+ */
+:root:lang(ko) body :is(input:not([type="checkbox"], [type="radio"], [type="range"], [type="color"], [type="file"], [type="button"], [type="submit"], [type="reset"], [type="image"]), [contenteditable="true"]),
+html:lang(ko) body :is(input:not([type="checkbox"], [type="radio"], [type="range"], [type="color"], [type="file"], [type="button"], [type="submit"], [type="reset"], [type="image"]), [contenteditable="true"]),
+html[lang^="ko" i] body :is(input:not([type="checkbox"], [type="radio"], [type="range"], [type="color"], [type="file"], [type="button"], [type="submit"], [type="reset"], [type="image"]), [contenteditable="true"]) {
+  font-family: var(--dsw-font-family);
 }

@@ -1,6 +1,8 @@
 # DeepSeek Harness 한국어 언어팩
 
-> 상태: active · v0.2.0 · 최종 갱신: 2026-10-23 · DSH: 0.2.1-rc.2 · 출처: [discussion #10687](https://github.com/deepseek-ai/deepseek-harness/discussions/10687)
+[English](README.md) · **한국어**
+
+> 상태: active · v0.2.2 · 최종 갱신: 2026-10-23 · DSH: 0.2.1-rc.2 · 출처: [discussion #10687](https://github.com/deepseek-ai/deepseek-harness/discussions/10687)
 
 ## 인덱스
 
@@ -9,6 +11,7 @@
 | 개요 | 추가되는 기능과 DSH 결합 방식 |
 | 설치 | 프로필 격리 설치·선택·제거 |
 | 커버리지 | 번역 범위와 한계 |
+| v0.2.2 폰트 스택 | 새로고침 후에도 유지되는 한국어 타이포그래피 |
 | 타이포그래피 | 한국어 폰트 스택, 스코프, 모노스페이스 보존 |
 | 동작 원리 | 공식 로케일 API, 소유 효과, 양보 가드 |
 | 빌드·검증 | 데이터에서 브라우저 번들 재생성 |
@@ -86,33 +89,53 @@ DSH `0.2.1-rc.2`에 포함된 패키지를 다룹니다: 채팅, 대화, 트레�
   팩은 카탈로그에서 이를 감지하고 같은 `(namespace, "ko")` 자리를 두고
   경쟁하지 않도록 **양보**합니다.
 
+## v0.2.2 — 폰트 스택 지속성
+
+v0.2.1 스타일시트는 `body`에만 바인딩해서, 전체 새로고침 후 코어 토큰 패스나
+테마 프리젠터가 한국어 스택을 덮어쓸 수 있었다. v0.2.2는
+`--dsh-font-family-text`와 `--dsw-font-family`를 `:root:lang(ko)`와 `body`
+양쪽에 바인딩하고, 본문에 직접 폰트 패밀리를 적용하며, 코드·터미널 좌석은
+건드리지 않는다. `!important`를 쓰지 않으므로 설정 → 모양에서 직접 고른
+폰트는 그대로 우선한다.
+
 ## 타이포그래피
 
 한국어 모드에서는 `styles/typography.css` 한 장을 스코프 주입합니다.
 
 ```css
-html:lang(ko) body {
-  --dsh-font-family-text:
-    "Pretendard Variable", Pretendard,
-    "SUIT Variable", SUIT,
-    "Apple SD Gothic Neo", "Malgun Gothic",
-    "Noto Sans KR", "Noto Sans CJK KR", "Nanum Gothic",
-    system-ui, sans-serif;
+:root:lang(ko),
+html:lang(ko),
+html[lang^="ko" i] {
+  --dsh-font-family-text: "Pretendard Variable", Pretendard, /* … */ system-ui, sans-serif;
+  --dsw-font-family: var(--dsh-font-family-text), var(--dsh-font-family-text-default);
+}
+
+:root:lang(ko) body,
+html:lang(ko) body,
+html[lang^="ko" i] body {
+  /* 같은 좌석 + */
+  font-family: var(--dsw-font-family);
 }
 ```
 
-- **본문 좌석만 변경** — DSH 본문은 `--dsh-font-family-text`를 사용하고,
-  코드·인라인 코드·터미널은 `--ds-font-family-code`와
-  `--dsh-font-family-terminal`을 사용합니다. 따라서 고정폭 영역은 그대로
-  유지됩니다.
-- **언어 스코프** — 로케일 플러그인이 관리하는 `<html lang>`을 따릅니다.
-  English/中文로 전환하면 규칙이 즉시 비활성화되어 DSH 기본 스택으로
-  롤백됩니다. JS 리스너가 필요 없습니다.
+- **본문 좌석 2개를 함께 고정** — DSH 본문은 `--dsw-font-family`로 해석되고,
+  코어 토큰 시트가 `body`에서 `--dsh-font-family-text`로 이 값을 조립합니다.
+  규칙이 두 변수를 루트와 `body`에 모두 바인딩하므로, 새로고침 후 코어 토큰
+  재적용과 테마 프리젠터가 한국어 스택을 덮어쓰지 못합니다. `input`,
+  `contenteditable` 같은 텍스트 컨트롤도 같은 좌석을 따릅니다.
+- **고정폭 보존** — 코드·인라인 코드·터미널은 별도의
+  `--ds-font-family-code` / `--dsh-font-family-terminal` 좌석을 사용합니다.
+  스타일시트는 이 변수를 참조하지 않고 `pre`, `code`, `textarea`를 의도적으로
+  제외하므로 고정폭 스택이 그대로 유지됩니다.
+- **언어 스코프** — 로케일 플러그인이 관리하는 `<html lang>`을 따르며
+  `ko-KR` 같은 지역 태그도 포함합니다. English/中文로 전환하면 규칙이 즉시
+  비활성화되어 DSH 기본 스택으로 롤백됩니다. JS 리스너가 필요 없습니다.
 - **웹폰트 없음** — 모든 패밀리는 시스템 로컬 폰트이며, 다운로드나 번들
   추가가 없습니다.
-- **사용자 설정 우선** — 우선순위 강제(`!important`)를 쓰지 않으므로
-  설정 → 테마에서 직접 고른 텍스트 폰트가 우선합니다. 팩을 제거하면
-  스타일 엘리먼트도 함께 제거됩니다.
+- **사용자 설정 우선** — 테마 프리젠터가 설정에서 고른 폰트를 인라인 사용자
+  속성으로 쓰며, 인라인 스타일은 스타일시트보다 우선합니다. 규칙은
+  `!important`를 쓰지 않습니다. 팩을 제거하면 스타일 엘리먼트도 함께
+  제거됩니다.
 
 ## 동작 원리
 

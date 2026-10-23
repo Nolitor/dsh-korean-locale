@@ -22,6 +22,7 @@ const read = (rel) => readFileSync(join(root, rel), 'utf8')
 const json = (rel) => JSON.parse(read(rel))
 
 const pkg = json('package.json')
+const market = json('market/index.json')
 const dicts = json('data/ko.json')
 const coverage = json('data/coverage.json')
 const client = read('lib/client.js')
@@ -30,7 +31,10 @@ const typography = read('styles/typography.css')
 
 // --- package metadata -------------------------------------------------------
 assert.equal(pkg.name, '@nolit/dsh-korean-locale')
-assert.equal(pkg.version, '0.2.0')
+assert.match(pkg.version, /^\d+\.\d+\.\d+$/)
+const marketPlugin = market.plugins.find((candidate) => candidate.name === pkg.name)
+assert.ok(marketPlugin, 'market index must list the package')
+assert.equal(marketPlugin.versions[0].version, pkg.version)
 assert.equal(pkg.private, false)
 assert.equal(pkg.dsh.manifestVersion, 1)
 assert.equal(pkg.dsh.bundle.patch, './cordis.patch.yml')
@@ -51,12 +55,17 @@ assert.ok(statSync(join(root, 'icon.svg')).size <= 256 * 1024, 'icon exceeds 256
 
 // --- typography contract ----------------------------------------------------
 const typographyDeclarations = typography.replace(/\/\*[\s\S]*?\*\//g, '')
-assert.ok(typographyDeclarations.includes('html:lang(ko) body'), 'typography scopes to the Korean locale')
+for (const selector of [':root:lang(ko)', 'html:lang(ko)', 'html[lang^="ko" i]', 'html:lang(ko) body']) {
+  assert.ok(typographyDeclarations.includes(selector), `typography scopes to ${selector}`)
+}
 assert.ok(!typographyDeclarations.includes('!important'), 'typography must not use !important')
-assert.ok(!/\bfont-family\s*:/u.test(typographyDeclarations), 'typography must not set font-family directly')
+for (const match of typographyDeclarations.matchAll(/(?<![\w-])font-family\s*:\s*([^;}]+)/gu)) {
+  assert.equal(match[1].trim(), 'var(--dsw-font-family)', 'direct font-family must consume --dsw-font-family')
+}
 assert.ok(!/--ds-font-family-code|--dsh-font-family-code|--dsh-font-family-terminal/u.test(typographyDeclarations), 'typography must not touch code/terminal seats')
-const typographyProperties = [...typographyDeclarations.matchAll(/(--[a-z0-9-]+)\s*:/gu)].map((match) => match[1])
-assert.deepEqual(typographyProperties, ['--dsh-font-family-text'])
+const typographyProperties = [...new Set([...typographyDeclarations.matchAll(/(--[a-z0-9-]+)\s*:/gu)].map((match) => match[1]))].sort()
+assert.deepEqual(typographyProperties, ['--dsh-font-family-text', '--dsw-font-family'])
+assert.ok(/--dsw-font-family\s*:\s*var\(--dsh-font-family-text\)/u.test(typographyDeclarations), 'text seat must feed --dsw-font-family')
 for (const family of ['"Pretendard Variable"', 'Pretendard', '"SUIT Variable"', 'SUIT', '"Apple SD Gothic Neo"', '"Malgun Gothic"', '"Noto Sans KR"']) {
   assert.ok(typographyDeclarations.includes(family), `missing ${family}`)
 }
