@@ -41,7 +41,7 @@ assert.equal(pkg.dsh.bundle.patch, './cordis.patch.yml')
 assert.equal(pkg.dsh.client.platform, 'web')
 assert.equal(pkg.dsh.client.immediately, true)
 assert.deepEqual(pkg.dsh.client.inject, ['@deepseek-ai/dsh-client-locale'])
-assert.match(pkg.engines.dsh, /\^?>=?0\.2\.1-rc\.2/)
+assert.equal(pkg.engines.dsh, '>=0.2.2-alpha.2 <0.3.0')
 assert.ok(patch.includes("name: '@nolit/dsh-korean-locale'"), 'bundle patch inserts the package')
 assert.ok(!/name:\s*['"][^'"]*\/client['"]/.test(patch), 'bundle patch must not add a browser row')
 assert.ok(pkg.files.includes('styles/typography.css'), 'package files must ship the typography source')
@@ -73,11 +73,17 @@ for (const family of ['"Pretendard Variable"', 'Pretendard', '"SUIT Variable"', 
 // --- coverage snapshot ------------------------------------------------------
 const namespaces = Object.keys(dicts)
 assert.equal(namespaces.length, coverage.namespaces)
-assert.equal(namespaces.length, 65)
+assert.equal(namespaces.length, 68)
 assert.equal(Object.values(dicts).reduce((n, d) => n + Object.keys(d).length, 0), coverage.keys)
-assert.equal(coverage.keys, 2910)
-assert.equal(coverage.report.filter((row) => row.missing || row.extra || row.phBad).length, 0)
-assert.equal(coverage.source.commit, '1091f232fda9a97c525d1553d59f0fd2374c9b3e')
+assert.equal(coverage.keys, 3019)
+assert.equal(
+  coverage.report.filter(
+    (row) => row.missing || row.extra || row.phBad || row.zhMissing || row.zhExtra || row.zhPhBad,
+  ).length,
+  0,
+)
+assert.ok(coverage.report.every((row) => row.zhKeys === null || row.zhKeys === row.enKeys))
+assert.equal(coverage.source.commit, '@deepseek-ai/dsh 0.2.2-alpha.2')
 
 // --- generated artifact contract -------------------------------------------
 let captured

@@ -4,34 +4,51 @@
   "project": {
     "id": "dsh-korean-locale",
     "displayName": "DSH Korean Locale",
-    "versionSource": { "type": "package.json", "path": "package.json" },
+    "versionSource": {
+      "type": "package.json",
+      "path": "package.json"
+    },
     "license": "MIT",
     "homepage": "https://github.com/linuxsung/dsh-korean-locale#readme",
     "repository": "https://github.com/linuxsung/dsh-korean-locale",
     "description": {
-      "en": "Korean language pack for DeepSeek Harness: 65 dictionaries, scoped Pretendard typography, marketplace-ready.",
-      "ko": "딥시크 하네스 한국어 언어팩: 65개 사전, Pretendard 타이포그래피, 마켓 등록 지원."
+      "en": "Korean language pack for DeepSeek Harness: 68 dictionaries / 3,019 strings refreshed for DSH 0.2.2-alpha.2, scoped Pretendard typography, marketplace-ready.",
+      "ko": "딥시크 하네스 한국어 언어팩: DSH 0.2.2-alpha.2 기준 68개 사전 / 3,019개 문자열, Pretendard 타이포그래피, 마켓 등록 지원."
     }
   },
   "source": {
     "root": "."
   },
   "artifacts": [
-    { "name": "dsh-korean-locale-{{version}}.zip", "format": "zip", "from": "." }
+    {
+      "name": "dsh-korean-locale-{{version}}.zip",
+      "format": "zip",
+      "from": "."
+    }
   ],
   "docs": {
     "enabled": false,
     "defaultLocale": "en",
-    "locales": ["en", "ko"]
+    "locales": [
+      "en",
+      "ko"
+    ]
   },
   "publish": {
     "github": {
       "owner": "linuxsung",
       "repo": "dsh-korean-locale",
       "visibility": "public",
-      "topics": ["deepseek-harness", "dsh", "i18n", "korean", "language-pack", "typography"],
+      "topics": [
+        "deepseek-harness",
+        "dsh",
+        "i18n",
+        "korean",
+        "language-pack",
+        "typography"
+      ],
       "release": {
-        "notes": "v0.2.2 fixes Korean font-stack persistence across reloads. The scoped stylesheet now binds both --dsh-font-family-text and --dsw-font-family at :root:lang(ko) and on body, applies the text seat directly to body text, and keeps code/terminal monospace seats and explicit Settings fonts authoritative. Docs follow the global standard: English README.md plus a reciprocal Korean README.ko.md."
+        "notes": "v0.2.3 refreshes the Korean dictionary snapshot for DSH 0.2.2-alpha.2, adds 117 newly shipped keys (including plugin manager update/version flows), removes 8 retired keys, and tightens the verified engines.dsh range. Typography remains scoped to text seats only."
       }
     }
   }

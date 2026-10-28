@@ -2,7 +2,7 @@
 
 **English** · [한국어](README.ko.md)
 
-> Status: active · v0.2.2 · Last updated: 2026-10-23 · DSH: 0.2.1-rc.2 · Upstream: [discussion #10687](https://github.com/deepseek-ai/deepseek-harness/discussions/10687)
+> Status: active · v0.2.3 · Last updated: 2026-10-29 · DSH: 0.2.2-alpha.2 · Upstream: [discussion #10687](https://github.com/deepseek-ai/deepseek-harness/discussions/10687)
 
 ## Index
 
@@ -11,7 +11,7 @@
 | Overview | What the pack adds and how it fits DSH |
 | Install | Profile-local install, selection, uninstall |
 | Coverage | Shipped namespaces and known limits |
-| v0.2.2 font stack | Reload-safe Korean typography |
+| v0.2.3 font stack | Reload-safe Korean typography |
 | Typography | Korean font stack, scope, and monospace safety |
 | How it works | Public locale API, owned effects, stand-down guard |
 | Build and verify | Regenerate the browser half from the data |
@@ -22,7 +22,7 @@
 
 Adds **한국어** to **Settings → General → Language** in the DeepSeek Harness
 web GUI and serves Korean copy for every shipped client dictionary:
-**65 dictionaries, 2,910 strings** for DSH `0.2.1-rc.2`. The set covers the
+**68 dictionaries, 3,019 strings** for DSH `0.2.2-alpha.2`. The set covers the
 shipped web surface and optional bundles; a dictionary stays inert until its
 feature bundle is enabled.
 
@@ -74,7 +74,7 @@ the definition is absent and can be removed or set to `en`.
 
 ## Coverage
 
-The dictionaries cover the packages shipped in DSH `0.2.1-rc.2`: chat,
+The dictionaries cover the packages shipped in DSH `0.2.2-alpha.2`: chat,
 conversation, trajectory, workspace, sidebar and document previews, settings,
 plugins and the plugin market, schedules, sessions, jobs, subagents, skills,
 deliverables, voice input, the inspector panel, and the shared `common`
@@ -92,14 +92,17 @@ Known limits:
   (for example the inspector's DevTools surface) keeps its own font stack.
 - A key the pack does not carry falls back to the shipped English string, never
   to a raw key.
-- DSH `0.2.1-rc.2` has no built-in `ko`. If a future release ships one, the
+- DSH `0.2.2-alpha.2` has no built-in `ko`. If a future release ships one, the
   pack detects it in the catalog and stands down instead of competing for the
   same `(namespace, "ko")` registration.
 
-## v0.2.2 — font stack persistence
+## v0.2.3 — alpha.2 coverage refresh and font stack persistence
+
+This release also refreshes the dictionary snapshot against DSH `0.2.2-alpha.2`
+(117 added keys, 8 retired keys removed). The typography work below is retained.
 
 The v0.2.1 stylesheet bound only `body`, so after a full reload the core token
-pass or the theme presenter could shadow the Korean stack. v0.2.2 binds both
+pass or the theme presenter could shadow the Korean stack. v0.2.3 binds both
 `--dsh-font-family-text` and `--dsw-font-family` at `:root:lang(ko)` and on
 `body`, applies the seat directly to body text, and leaves code and terminal
 seats untouched. An explicit Settings → Appearance font still wins because the

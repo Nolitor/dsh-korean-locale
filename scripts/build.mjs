@@ -65,7 +65,9 @@ function validate(dicts, coverage) {
   }
 
   if (keys !== coverage.keys) fail(`coverage keys ${coverage.keys} != data keys ${keys}`)
-  const bad = coverage.report.filter((row) => row.missing || row.extra || row.phBad)
+  const bad = coverage.report.filter(
+    (row) => row.missing || row.extra || row.phBad || row.zhMissing || row.zhExtra || row.zhPhBad,
+  )
   if (bad.length > 0) fail(`coverage reports ${bad.length} mismatched dictionaries`)
   return { namespaces: namespaces.length, keys }
 }
