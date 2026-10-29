@@ -9,8 +9,8 @@
       "path": "package.json"
     },
     "license": "MIT",
-    "homepage": "https://github.com/linuxsung/dsh-korean-locale#readme",
-    "repository": "https://github.com/linuxsung/dsh-korean-locale",
+    "homepage": "https://github.com/Nolitor/dsh-korean-locale#readme",
+    "repository": "https://github.com/Nolitor/dsh-korean-locale",
     "description": {
       "en": "Korean language pack for DeepSeek Harness: 68 dictionaries / 3,019 strings refreshed for DSH 0.2.2-alpha.2, scoped Pretendard typography, marketplace-ready.",
       "ko": "딥시크 하네스 한국어 언어팩: DSH 0.2.2-alpha.2 기준 68개 사전 / 3,019개 문자열, Pretendard 타이포그래피, 마켓 등록 지원."
@@ -36,7 +36,7 @@
   },
   "publish": {
     "github": {
-      "owner": "linuxsung",
+      "owner": "Nolitor",
       "repo": "dsh-korean-locale",
       "visibility": "public",
       "topics": [
@@ -48,7 +48,7 @@
         "typography"
       ],
       "release": {
-        "notes": "v0.2.3 refreshes the Korean dictionary snapshot for DSH 0.2.2-alpha.2, adds 117 newly shipped keys (including plugin manager update/version flows), removes 8 retired keys, tightens the verified engines.dsh range, and drops a duplicate percent from the context tooltip. Typography remains scoped to text seats only. English README.md is the default document with a reciprocal Korean README.ko.md; CHANGELOG.md and CHANGELOG.ko.md record the version history."
+        "notes": "v0.2.4 translates the DSH 0.2.2-alpha.2 first-run onboarding (39 settings.account.onboarding* strings), replaces six three-dot ellipses with the ellipsis character, and re-verifies all 68 dictionaries / 3,019 keys against the installed runtime (0 missing, 0 extra, 0 placeholder mismatches). English README.md remains the default document with a reciprocal Korean README.ko.md; CHANGELOG.md and CHANGELOG.ko.md record the version history."
       }
     }
   }

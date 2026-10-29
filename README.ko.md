@@ -2,7 +2,7 @@
 
 [English](README.md) · **한국어**
 
-> 상태: active · v0.2.3 · 최종 갱신: 2026-10-29 · DSH: 0.2.2-alpha.2 · 출처: [discussion #10687](https://github.com/deepseek-ai/deepseek-harness/discussions/10687)
+> 상태: active · v0.2.4 · 최종 갱신: 2026-10-29 · DSH: 0.2.2-alpha.2 · 출처: [discussion #10687](https://github.com/deepseek-ai/deepseek-harness/discussions/10687)
 
 ## 인덱스
 
@@ -11,6 +11,7 @@
 | 개요 | 추가되는 기능과 DSH 결합 방식 |
 | 설치 | 프로필 격리 설치·선택·제거 |
 | 커버리지 | 번역 범위와 한계 |
+| v0.2.4 온보딩 | 한국어 첫 실행 온보딩과 문구 |
 | v0.2.3 폰트 스택 | 새로고침 후에도 유지되는 한국어 타이포그래피 |
 | 타이포그래피 | 한국어 폰트 스택, 스코프, 모노스페이스 보존 |
 | 동작 원리 | 공식 로케일 API, 소유 효과, 양보 가드 |
@@ -89,6 +90,14 @@ DSH `0.2.2-alpha.2`에 포함된 패키지를 다룹니다: 채팅, 대화, 트�
 - DSH `0.2.2-alpha.2`에는 빌트인 `ko`가 없습니다. 향후 빌트인으로 추가되면
   팩은 카탈로그에서 이를 감지하고 같은 `(namespace, "ko")` 자리를 두고
   경쟁하지 않도록 **양보**합니다.
+
+## v0.2.4 — 첫 실행 온보딩과 문구
+
+DSH `0.2.2-alpha.2`에 포함된 첫 실행 온보딩 화면이 한국어로 표시됩니다.
+`settings.account.onboarding*` 39개 문자열(환영, 용도, 상세 수준, 크레딧,
+건너뛰기 안내)을 모두 번역해 영어로 폴백하지 않습니다. 로딩 문구 6개도
+말줄임표를 마침표 세 개(`...`) 대신 줄임표 문자(`…`)로 바꿔 나머지 한국어
+문구와 일치시켰습니다.
 
 ## v0.2.3 — alpha.2 커버리지 갱신과 폰트 스택 지속성
 
@@ -197,7 +206,7 @@ npm publish
 
 - [CHANGELOG.md](CHANGELOG.md) — 버전 기록, 영어(기본)
 - [CHANGELOG.ko.md](CHANGELOG.ko.md) — 버전 기록, 한국어
-- [GitHub 릴리스](https://github.com/linuxsung/dsh-korean-locale/releases) — 배포 아카이브
+- [GitHub 릴리스](https://github.com/Nolitor/dsh-korean-locale/releases) — 배포 아카이브
 
 영어 `README.md`가 기본 문서이고 `README.ko.md`는 이에 대응하는 한국어
 번역입니다. 두 문서는 같은 섹션과 같은 버전을 담습니다.

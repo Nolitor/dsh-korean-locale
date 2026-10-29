@@ -2,7 +2,7 @@
 
 **English** · [한국어](README.ko.md)
 
-> Status: active · v0.2.3 · Last updated: 2026-10-29 · DSH: 0.2.2-alpha.2 · Upstream: [discussion #10687](https://github.com/deepseek-ai/deepseek-harness/discussions/10687)
+> Status: active · v0.2.4 · Last updated: 2026-10-29 · DSH: 0.2.2-alpha.2 · Upstream: [discussion #10687](https://github.com/deepseek-ai/deepseek-harness/discussions/10687)
 
 ## Index
 
@@ -11,6 +11,7 @@
 | Overview | What the pack adds and how it fits DSH |
 | Install | Profile-local install, selection, uninstall |
 | Coverage | Shipped namespaces and known limits |
+| v0.2.4 onboarding | Korean first-run onboarding and wording |
 | v0.2.3 font stack | Reload-safe Korean typography |
 | Typography | Korean font stack, scope, and monospace safety |
 | How it works | Public locale API, owned effects, stand-down guard |
@@ -96,6 +97,14 @@ Known limits:
 - DSH `0.2.2-alpha.2` has no built-in `ko`. If a future release ships one, the
   pack detects it in the catalog and stands down instead of competing for the
   same `(namespace, "ko")` registration.
+
+## v0.2.4 — first-run onboarding and wording
+
+The first-run onboarding screen shipped with DSH `0.2.2-alpha.2` now renders in
+Korean. All 39 `settings.account.onboarding*` strings — welcome, purpose,
+detail level, credits, and skip prompts — are translated instead of falling back
+to English. Six loading messages also use the ellipsis character (`…`) instead of
+three dots, matching the rest of the Korean copy.
 
 ## v0.2.3 — alpha.2 coverage refresh and font stack persistence
 
@@ -207,7 +216,7 @@ served from the repository's `market/` directory or merged into a larger index.
 
 - [CHANGELOG.md](CHANGELOG.md) — version history, English (default)
 - [CHANGELOG.ko.md](CHANGELOG.ko.md) — 버전 기록, 한국어
-- [GitHub releases](https://github.com/linuxsung/dsh-korean-locale/releases) — published archives
+- [GitHub releases](https://github.com/Nolitor/dsh-korean-locale/releases) — published archives
 
 `README.md` is the default document and `README.ko.md` is its reciprocal Korean
 translation; both carry the same sections and version.

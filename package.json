@@ -1,6 +1,6 @@
 {
   "name": "@nolit/dsh-korean-locale",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "private": false,
   "description": "Korean (ko) language pack for the DeepSeek Harness web GUI: registers 한국어, translates every shipped client dictionary, and applies a scoped Korean font stack.",
   "icon": "./icon.svg",
@@ -16,11 +16,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/linuxsung/dsh-korean-locale.git"
+    "url": "git+https://github.com/Nolitor/dsh-korean-locale.git"
   },
-  "homepage": "https://github.com/linuxsung/dsh-korean-locale#readme",
+  "homepage": "https://github.com/Nolitor/dsh-korean-locale#readme",
   "bugs": {
-    "url": "https://github.com/linuxsung/dsh-korean-locale/issues"
+    "url": "https://github.com/Nolitor/dsh-korean-locale/issues"
   },
   "license": "MIT",
   "author": "nolit",

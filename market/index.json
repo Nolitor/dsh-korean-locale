@@ -46,9 +46,9 @@
       },
       "icon": "icons/korean-locale.svg",
       "author": "nolit",
-      "homepage": "https://github.com/linuxsung/dsh-korean-locale#readme",
+      "homepage": "https://github.com/Nolitor/dsh-korean-locale#readme",
       "repository": {
-        "url": "https://github.com/linuxsung/dsh-korean-locale"
+        "url": "https://github.com/Nolitor/dsh-korean-locale"
       },
       "metadata": {
         "category": "localization",
@@ -67,8 +67,8 @@
       },
       "versions": [
         {
-          "version": "0.2.3",
-          "publishTimestamp": 1793282633,
+          "version": "0.2.4",
+          "publishTimestamp": 1793284234,
           "source": {
             "type": "npm"
           },

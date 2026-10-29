@@ -4,6 +4,21 @@
 [CHANGELOG.md](CHANGELOG.md)이고, 이 파일은 그 한국어 번역입니다. 버전은
 [Semantic Versioning](https://semver.org/)을 따릅니다.
 
+## 0.2.4 — 2026-10-29
+
+### 수정
+
+- DSH `0.2.2-alpha.2`의 첫 실행 온보딩 화면을 번역했습니다.
+  `settings.account.onboarding*` 39개 문자열(환영, 용도, 상세 수준, 크레딧,
+  건너뛰기 안내)이 영어 대신 한국어로 표시됩니다.
+- 로딩 문구 6개의 말줄임표를 마침표 세 개(`...`)에서 줄임표 문자(`…`)로
+  바꿨습니다.
+
+### 검증
+
+- 68개 사전 / 3,019개 키가 설치된 DSH `0.2.2-alpha.2` 추출 결과와 일치합니다:
+  누락 0, 초과 0, 플레이스홀더 불일치 0.
+
 ## 0.2.3 — 2026-10-29
 
 ### 변경
@@ -49,6 +64,7 @@
 - DSH `0.2.1-rc.2`용 최초 한국어 언어팩: 65개 사전 / 2,910개 문자열,
   스코프 Pretendard 타이포그래피, 로컬라이즈된 패키지 아이콘, 마켓 피드.
 
-[0.2.3]: https://github.com/linuxsung/dsh-korean-locale/compare/v0.2.2...v0.2.3
-[0.2.2]: https://github.com/linuxsung/dsh-korean-locale/compare/v0.2.1...v0.2.2
-[0.2.1]: https://github.com/linuxsung/dsh-korean-locale/compare/v0.2.0...v0.2.1
+[0.2.4]: https://github.com/Nolitor/dsh-korean-locale/compare/v0.2.3...v0.2.4
+[0.2.3]: https://github.com/Nolitor/dsh-korean-locale/compare/v0.2.2...v0.2.3
+[0.2.2]: https://github.com/Nolitor/dsh-korean-locale/compare/v0.2.1...v0.2.2
+[0.2.1]: https://github.com/Nolitor/dsh-korean-locale/compare/v0.2.0...v0.2.1
