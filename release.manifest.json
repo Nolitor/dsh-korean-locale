@@ -48,7 +48,7 @@
         "typography"
       ],
       "release": {
-        "notes": "v0.2.3 refreshes the Korean dictionary snapshot for DSH 0.2.2-alpha.2, adds 117 newly shipped keys (including plugin manager update/version flows), removes 8 retired keys, and tightens the verified engines.dsh range. Typography remains scoped to text seats only."
+        "notes": "v0.2.3 refreshes the Korean dictionary snapshot for DSH 0.2.2-alpha.2, adds 117 newly shipped keys (including plugin manager update/version flows), removes 8 retired keys, tightens the verified engines.dsh range, and drops a duplicate percent from the context tooltip. Typography remains scoped to text seats only. English README.md is the default document with a reciprocal Korean README.ko.md; CHANGELOG.md and CHANGELOG.ko.md record the version history."
       }
     }
   }

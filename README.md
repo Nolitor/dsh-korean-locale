@@ -16,6 +16,7 @@
 | How it works | Public locale API, owned effects, stand-down guard |
 | Build and verify | Regenerate the browser half from the data |
 | Publishing | Package metadata and market feed |
+| Releases | Version history and documentation languages |
 | License | MIT and translation attribution |
 
 ## Overview
@@ -201,6 +202,15 @@ npm publish
 
 `prepublishOnly` rebuilds and verifies the artifact. The market feed can be
 served from the repository's `market/` directory or merged into a larger index.
+
+## Releases
+
+- [CHANGELOG.md](CHANGELOG.md) — version history, English (default)
+- [CHANGELOG.ko.md](CHANGELOG.ko.md) — 버전 기록, 한국어
+- [GitHub releases](https://github.com/linuxsung/dsh-korean-locale/releases) — published archives
+
+`README.md` is the default document and `README.ko.md` is its reciprocal Korean
+translation; both carry the same sections and version.
 
 ## License
 

@@ -16,6 +16,7 @@
 | 동작 원리 | 공식 로케일 API, 소유 효과, 양보 가드 |
 | 빌드·검증 | 데이터에서 브라우저 번들 재생성 |
 | 배포 | 패키지 메타데이터와 마켓 피드 |
+| 릴리스 | 버전 기록과 문서 언어 |
 | 라이선스 | MIT 및 번역 출처 |
 
 ## 개요
@@ -191,6 +192,15 @@ npm publish
 
 `prepublishOnly`가 산출물을 다시 빌드·검증합니다. 마켓 피드는 저장소의
 `market/` 디렉터리에서 제공하거나 더 큰 인덱스에 병합할 수 있습니다.
+
+## 릴리스
+
+- [CHANGELOG.md](CHANGELOG.md) — 버전 기록, 영어(기본)
+- [CHANGELOG.ko.md](CHANGELOG.ko.md) — 버전 기록, 한국어
+- [GitHub 릴리스](https://github.com/linuxsung/dsh-korean-locale/releases) — 배포 아카이브
+
+영어 `README.md`가 기본 문서이고 `README.ko.md`는 이에 대응하는 한국어
+번역입니다. 두 문서는 같은 섹션과 같은 버전을 담습니다.
 
 ## 라이선스
 

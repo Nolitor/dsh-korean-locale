@@ -57,6 +57,8 @@
     "scripts/verify.mjs",
     "README.md",
     "README.ko.md",
+    "CHANGELOG.md",
+    "CHANGELOG.ko.md",
     "LICENSE",
     "NOTICE",
     "package.json"
