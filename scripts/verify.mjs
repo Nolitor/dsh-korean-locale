@@ -73,9 +73,9 @@ for (const family of ['"Pretendard Variable"', 'Pretendard', '"SUIT Variable"', 
 // --- coverage snapshot ------------------------------------------------------
 const namespaces = Object.keys(dicts)
 assert.equal(namespaces.length, coverage.namespaces)
-assert.equal(namespaces.length, 68)
+assert.equal(namespaces.length, 69)
 assert.equal(Object.values(dicts).reduce((n, d) => n + Object.keys(d).length, 0), coverage.keys)
-assert.equal(coverage.keys, 3019)
+assert.equal(coverage.keys, 3088)
 assert.equal(
   coverage.report.filter(
     (row) => row.missing || row.extra || row.phBad || row.zhMissing || row.zhExtra || row.zhPhBad,
@@ -83,7 +83,7 @@ assert.equal(
   0,
 )
 assert.ok(coverage.report.every((row) => row.zhKeys === null || row.zhKeys === row.enKeys))
-assert.equal(coverage.source.commit, '@deepseek-ai/dsh 0.2.2-alpha.2')
+assert.equal(coverage.source.commit, '@deepseek-ai/dsh 0.2.2-alpha.3')
 
 // --- generated artifact contract -------------------------------------------
 let captured
