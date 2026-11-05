@@ -1,13 +1,28 @@
 {
   "source": {
     "repository": "https://github.com/deepseek-ai/deepseek-harness",
-    "branch": "installed runtime extraction (ctx.locale.register tables)",
-    "commit": "@deepseek-ai/dsh 0.2.2-alpha.3",
-    "baseVersion": "0.2.2-alpha.3"
+    "branch": "installed runtime extraction (ctx.locale.register tables + client bundles)",
+    "commit": "@deepseek-ai/dsh 0.2.2-rc.1",
+    "baseVersion": "0.2.2-rc.1"
   },
-  "namespaces": 69,
-  "keys": 3088,
+  "namespaces": 74,
+  "keys": 3843,
   "report": [
+    {
+      "ns": "actionCards",
+      "keys": 14,
+      "enKeys": 14,
+      "zhKeys": null,
+      "missing": 0,
+      "extra": 0,
+      "phBad": 0,
+      "zhMissing": 0,
+      "zhExtra": 0,
+      "zhPhBad": 0,
+      "same": 0,
+      "noHangul": 0,
+      "empty": 0
+    },
     {
       "ns": "agent-team",
       "keys": 25,
@@ -49,24 +64,9 @@
       "zhMissing": 0,
       "zhExtra": 0,
       "zhPhBad": 0,
-      "same": 0,
-      "noHangul": 0,
-      "empty": 0
-    },
-    {
-      "ns": "claude-code-mods",
-      "keys": 4,
-      "enKeys": 4,
-      "zhKeys": null,
-      "missing": 0,
-      "extra": 0,
-      "phBad": 0,
-      "zhMissing": 0,
-      "zhExtra": 0,
-      "zhPhBad": 0,
-      "same": 0,
-      "noHangul": 0,
-      "empty": 0
+      "same": 11,
+      "noHangul": 11,
+      "empty": 1
     },
     {
       "ns": "command",
@@ -79,14 +79,29 @@
       "zhMissing": 0,
       "zhExtra": 0,
       "zhPhBad": 0,
-      "same": 0,
-      "noHangul": 0,
+      "same": 6,
+      "noHangul": 6,
       "empty": 0
     },
     {
       "ns": "common",
-      "keys": 42,
-      "enKeys": 42,
+      "keys": 41,
+      "enKeys": 41,
+      "zhKeys": null,
+      "missing": 0,
+      "extra": 0,
+      "phBad": 0,
+      "zhMissing": 0,
+      "zhExtra": 0,
+      "zhPhBad": 0,
+      "same": 3,
+      "noHangul": 3,
+      "empty": 0
+    },
+    {
+      "ns": "contextMenu",
+      "keys": 1,
+      "enKeys": 1,
       "zhKeys": null,
       "missing": 0,
       "extra": 0,
@@ -109,8 +124,8 @@
       "zhMissing": 0,
       "zhExtra": 0,
       "zhPhBad": 0,
-      "same": 0,
-      "noHangul": 0,
+      "same": 7,
+      "noHangul": 7,
       "empty": 0
     },
     {
@@ -139,14 +154,14 @@
       "zhMissing": 0,
       "zhExtra": 0,
       "zhPhBad": 0,
-      "same": 0,
-      "noHangul": 0,
+      "same": 2,
+      "noHangul": 2,
       "empty": 0
     },
     {
-      "ns": "deepseek-model-label-1017",
-      "keys": 1,
-      "enKeys": 1,
+      "ns": "creationRecommendations",
+      "keys": 55,
+      "enKeys": 55,
       "zhKeys": null,
       "missing": 0,
       "extra": 0,
@@ -169,8 +184,8 @@
       "zhMissing": 0,
       "zhExtra": 0,
       "zhPhBad": 0,
-      "same": 0,
-      "noHangul": 0,
+      "same": 2,
+      "noHangul": 2,
       "empty": 0
     },
     {
@@ -199,8 +214,8 @@
       "zhMissing": 0,
       "zhExtra": 0,
       "zhPhBad": 0,
-      "same": 0,
-      "noHangul": 0,
+      "same": 1,
+      "noHangul": 1,
       "empty": 0
     },
     {
@@ -214,8 +229,8 @@
       "zhMissing": 0,
       "zhExtra": 0,
       "zhPhBad": 0,
-      "same": 0,
-      "noHangul": 0,
+      "same": 1,
+      "noHangul": 1,
       "empty": 0
     },
     {
@@ -279,6 +294,21 @@
       "empty": 0
     },
     {
+      "ns": "forgePanel",
+      "keys": 253,
+      "enKeys": 253,
+      "zhKeys": null,
+      "missing": 0,
+      "extra": 0,
+      "phBad": 0,
+      "zhMissing": 0,
+      "zhExtra": 0,
+      "zhPhBad": 0,
+      "same": 5,
+      "noHangul": 5,
+      "empty": 0
+    },
+    {
       "ns": "goal",
       "keys": 12,
       "enKeys": 12,
@@ -324,6 +354,21 @@
       "empty": 0
     },
     {
+      "ns": "liveshare",
+      "keys": 225,
+      "enKeys": 225,
+      "zhKeys": null,
+      "missing": 0,
+      "extra": 0,
+      "phBad": 0,
+      "zhMissing": 0,
+      "zhExtra": 0,
+      "zhPhBad": 0,
+      "same": 4,
+      "noHangul": 4,
+      "empty": 0
+    },
+    {
       "ns": "messageQuotes",
       "keys": 1,
       "enKeys": 1,
@@ -364,8 +409,8 @@
       "zhMissing": 0,
       "zhExtra": 0,
       "zhPhBad": 0,
-      "same": 0,
-      "noHangul": 0,
+      "same": 31,
+      "noHangul": 31,
       "empty": 0
     },
     {
@@ -379,8 +424,8 @@
       "zhMissing": 0,
       "zhExtra": 0,
       "zhPhBad": 0,
-      "same": 0,
-      "noHangul": 0,
+      "same": 1,
+      "noHangul": 1,
       "empty": 0
     },
     {
@@ -409,14 +454,29 @@
       "zhMissing": 0,
       "zhExtra": 0,
       "zhPhBad": 0,
-      "same": 0,
-      "noHangul": 0,
+      "same": 5,
+      "noHangul": 5,
       "empty": 0
     },
     {
       "ns": "pluginMarket",
       "keys": 87,
       "enKeys": 87,
+      "zhKeys": null,
+      "missing": 0,
+      "extra": 0,
+      "phBad": 0,
+      "zhMissing": 0,
+      "zhExtra": 0,
+      "zhPhBad": 0,
+      "same": 3,
+      "noHangul": 3,
+      "empty": 0
+    },
+    {
+      "ns": "pluginRecommendations",
+      "keys": 25,
+      "enKeys": 25,
       "zhKeys": null,
       "missing": 0,
       "extra": 0,
@@ -460,8 +520,8 @@
     },
     {
       "ns": "schedule.catalog",
-      "keys": 70,
-      "enKeys": 70,
+      "keys": 76,
+      "enKeys": 76,
       "zhKeys": null,
       "missing": 0,
       "extra": 0,
@@ -469,14 +529,14 @@
       "zhMissing": 0,
       "zhExtra": 0,
       "zhPhBad": 0,
-      "same": 0,
-      "noHangul": 0,
+      "same": 8,
+      "noHangul": 12,
       "empty": 0
     },
     {
       "ns": "schedule.manager",
-      "keys": 188,
-      "enKeys": 188,
+      "keys": 215,
+      "enKeys": 215,
       "zhKeys": null,
       "missing": 0,
       "extra": 0,
@@ -484,8 +544,8 @@
       "zhMissing": 0,
       "zhExtra": 0,
       "zhPhBad": 0,
-      "same": 0,
-      "noHangul": 0,
+      "same": 8,
+      "noHangul": 12,
       "empty": 0
     },
     {
@@ -514,8 +574,8 @@
       "zhMissing": 0,
       "zhExtra": 0,
       "zhPhBad": 0,
-      "same": 0,
-      "noHangul": 0,
+      "same": 1,
+      "noHangul": 1,
       "empty": 0
     },
     {
@@ -544,8 +604,8 @@
       "zhMissing": 0,
       "zhExtra": 0,
       "zhPhBad": 0,
-      "same": 0,
-      "noHangul": 0,
+      "same": 2,
+      "noHangul": 2,
       "empty": 0
     },
     {
@@ -559,8 +619,8 @@
       "zhMissing": 0,
       "zhExtra": 0,
       "zhPhBad": 0,
-      "same": 0,
-      "noHangul": 0,
+      "same": 2,
+      "noHangul": 2,
       "empty": 0
     },
     {
@@ -619,8 +679,8 @@
       "zhMissing": 0,
       "zhExtra": 0,
       "zhPhBad": 0,
-      "same": 0,
-      "noHangul": 0,
+      "same": 6,
+      "noHangul": 6,
       "empty": 0
     },
     {
@@ -724,8 +784,8 @@
       "zhMissing": 0,
       "zhExtra": 0,
       "zhPhBad": 0,
-      "same": 0,
-      "noHangul": 0,
+      "same": 1,
+      "noHangul": 1,
       "empty": 0
     },
     {
@@ -739,8 +799,8 @@
       "zhMissing": 0,
       "zhExtra": 0,
       "zhPhBad": 0,
-      "same": 0,
-      "noHangul": 0,
+      "same": 1,
+      "noHangul": 1,
       "empty": 0
     },
     {
@@ -754,8 +814,8 @@
       "zhMissing": 0,
       "zhExtra": 0,
       "zhPhBad": 0,
-      "same": 0,
-      "noHangul": 0,
+      "same": 1,
+      "noHangul": 1,
       "empty": 0
     },
     {
@@ -805,8 +865,8 @@
     },
     {
       "ns": "sidebarCodePreview",
-      "keys": 25,
-      "enKeys": 25,
+      "keys": 3,
+      "enKeys": 3,
       "zhKeys": null,
       "missing": 0,
       "extra": 0,
@@ -844,8 +904,8 @@
       "zhMissing": 0,
       "zhExtra": 0,
       "zhPhBad": 0,
-      "same": 0,
-      "noHangul": 0,
+      "same": 1,
+      "noHangul": 2,
       "empty": 0
     },
     {
@@ -874,8 +934,8 @@
       "zhMissing": 0,
       "zhExtra": 0,
       "zhPhBad": 0,
-      "same": 0,
-      "noHangul": 0,
+      "same": 1,
+      "noHangul": 1,
       "empty": 0
     },
     {
@@ -904,8 +964,8 @@
       "zhMissing": 0,
       "zhExtra": 0,
       "zhPhBad": 0,
-      "same": 0,
-      "noHangul": 0,
+      "same": 2,
+      "noHangul": 2,
       "empty": 0
     },
     {
@@ -964,8 +1024,23 @@
       "zhMissing": 0,
       "zhExtra": 0,
       "zhPhBad": 0,
-      "same": 0,
-      "noHangul": 0,
+      "same": 1,
+      "noHangul": 1,
+      "empty": 0
+    },
+    {
+      "ns": "stats",
+      "keys": 177,
+      "enKeys": 177,
+      "zhKeys": null,
+      "missing": 0,
+      "extra": 0,
+      "phBad": 0,
+      "zhMissing": 0,
+      "zhExtra": 0,
+      "zhPhBad": 0,
+      "same": 1,
+      "noHangul": 1,
       "empty": 0
     },
     {
@@ -979,8 +1054,8 @@
       "zhMissing": 0,
       "zhExtra": 0,
       "zhPhBad": 0,
-      "same": 0,
-      "noHangul": 0,
+      "same": 2,
+      "noHangul": 2,
       "empty": 0
     },
     {
@@ -994,8 +1069,8 @@
       "zhMissing": 0,
       "zhExtra": 0,
       "zhPhBad": 0,
-      "same": 0,
-      "noHangul": 0,
+      "same": 7,
+      "noHangul": 7,
       "empty": 0
     },
     {
@@ -1009,8 +1084,8 @@
       "zhMissing": 0,
       "zhExtra": 0,
       "zhPhBad": 0,
-      "same": 0,
-      "noHangul": 0,
+      "same": 1,
+      "noHangul": 1,
       "empty": 0
     },
     {
@@ -1024,8 +1099,8 @@
       "zhMissing": 0,
       "zhExtra": 0,
       "zhPhBad": 0,
-      "same": 0,
-      "noHangul": 0,
+      "same": 1,
+      "noHangul": 1,
       "empty": 0
     },
     {
@@ -1039,8 +1114,8 @@
       "zhMissing": 0,
       "zhExtra": 0,
       "zhPhBad": 0,
-      "same": 0,
-      "noHangul": 0,
+      "same": 2,
+      "noHangul": 2,
       "empty": 0
     }
   ]

@@ -2,7 +2,7 @@
 
 **English** · [한국어](README.ko.md)
 
-> Status: active · v0.2.4 · Last updated: 2026-10-29 · DSH: 0.2.2-alpha.2 · Upstream: [discussion #10687](https://github.com/deepseek-ai/deepseek-harness/discussions/10687)
+> Status: active · v0.0.1-rc.1 · Last updated: 2026-11-05 · DSH: 0.2.2-rc.1 · Upstream: [discussion #10687](https://github.com/deepseek-ai/deepseek-harness/discussions/10687)
 
 ## Index
 
@@ -11,7 +11,7 @@
 | Overview | What the pack adds and how it fits DSH |
 | Install | Profile-local install, selection, uninstall |
 | Coverage | Shipped namespaces and known limits |
-| v0.2.4 onboarding | Korean first-run onboarding and wording |
+| v0.0.1-rc.1 coverage | rc.1 dictionary regeneration (74 namespaces, 3,843 keys) |
 | v0.2.3 font stack | Reload-safe Korean typography |
 | Typography | Korean font stack, scope, and monospace safety |
 | How it works | Public locale API, owned effects, stand-down guard |
@@ -24,7 +24,7 @@
 
 Adds **한국어** to **Settings → General → Language** in the DeepSeek Harness
 web GUI and serves Korean copy for every shipped client dictionary:
-**68 dictionaries, 3,019 strings** for DSH `0.2.2-alpha.2`. The set covers the
+**74 dictionaries, 3,843 strings** for DSH `0.2.2-rc.1`. The set covers the
 shipped web surface and optional bundles; a dictionary stays inert until its
 feature bundle is enabled.
 
@@ -76,7 +76,7 @@ the definition is absent and can be removed or set to `en`.
 
 ## Coverage
 
-The dictionaries cover the packages shipped in DSH `0.2.2-alpha.2`: chat,
+The dictionaries cover the packages shipped in DSH `0.2.2-rc.1`: chat,
 conversation, trajectory, workspace, sidebar and document previews, settings,
 plugins and the plugin market, schedules, sessions, jobs, subagents, skills,
 deliverables, voice input, the inspector panel, and the shared `common`
@@ -94,7 +94,8 @@ Known limits:
   (for example the inspector's DevTools surface) keeps its own font stack.
 - A key the pack does not carry falls back to the shipped English string, never
   to a raw key.
-- DSH `0.2.2-alpha.2` has no built-in `ko`. If a future release ships one, the
+- DSH `0.2.2-rc.1` has no built-in `ko` (it ships de/en/es/fr/ja/pt/ru/zh). If a future
+  release ships one, the
   pack detects it in the catalog and stands down instead of competing for the
   same `(namespace, "ko")` registration.
 

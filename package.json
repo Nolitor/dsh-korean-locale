@@ -1,6 +1,6 @@
 {
   "name": "@nolit/dsh-korean-locale",
-  "version": "0.2.5",
+  "version": "0.0.1-rc.1",
   "private": false,
   "description": "Korean (ko) language pack for the DeepSeek Harness web GUI: registers 한국어, translates every shipped client dictionary, and applies a scoped Korean font stack.",
   "icon": "./icon.svg",
@@ -64,7 +64,7 @@
     "package.json"
   ],
   "engines": {
-    "node": ">=24",
+    "node": ">=24.9",
     "dsh": ">=0.2.2-alpha.2 <0.3.0"
   },
   "dsh": {

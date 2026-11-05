@@ -4,6 +4,28 @@
 [CHANGELOG.md](CHANGELOG.md)이고, 이 파일은 그 한국어 번역입니다. 버전은
 [Semantic Versioning](https://semver.org/)을 따릅니다.
 
+## 0.0.1-rc.1 — DSH 0.2.2-rc.1 기준 재생성, 버전 사다리 적용 — 2026-11-05
+
+소유자 결정(2026-11-05): 모든 `@nolit` 트랙은 `0.0.1-rc.N`을 보고하며, 이 팩은 alpha.3
+스냅샷을 이름만 바꾸는 것이 아니라 **rc.1** 사전 기준으로 재생성해야 합니다.
+
+측정 전 → 후 (설치된 rc.1 클라이언트 번들에서 추출):
+
+| 항목 | 이전 (alpha.3) | 이후 (rc.1) |
+| :--- | :--- | :--- |
+| 네임스페이스 | 69 | **74** |
+| 키 | 3,088 | **3,843** |
+| rc.1 신규 네임스페이스 번역 | — | `stats` 177, `liveshare` 225, `forgePanel` 253, `creationRecommendations` 55, `pluginRecommendations` 25, `actionCards` 14, `contextMenu` 1 |
+| 기존 네임스페이스 신규 키 | — | 76 (schedule catalog/manager 호스트 문구) |
+| 폐기 키 제거 | — | 66 |
+| 폐기 네임스페이스 제거 | — | `claude-code-mods`, `deepseek-model-label-1017` (rc.1에 등록 없음) |
+| `engines.node` | `>=24` | `>=24.9` (rc.1 최소) |
+| 버전 | `0.2.5` | `0.0.1-rc.1` |
+| `npm test` (`scripts/verify.mjs`) | 69 / 3,088 | **74 / 3,843**, 누락 0, 초과 0, placeholder 불일치 0 |
+
+모든 한국어 값은 rc.1 영어 원문의 `{placeholder}`와 정확히 일치합니다(rc.1에서 형태가 바뀐
+`frequency.cron`/`cronLocal` 4개 값은 `{expression}`을 쓰던 이전 번역을 rc.1 문구로 교체).
+
 ## 0.2.4 — 2026-10-29
 
 ### 수정
