@@ -6,6 +6,36 @@ Versions follow [Semantic Versioning](https://semver.org/).
 
 Current version: `0.0.1-rc.1`
 
+## 0.0.1-rc.1 — published to GitHub; release metadata corrected — 2026-11-06
+
+The two commits carrying the rc.1 regeneration had never been pushed, and
+`release.manifest.json` still described the alpha.2 snapshot.
+
+Measured before → after:
+
+| Surface | Before | After |
+| :--- | :--- | :--- |
+| `origin/main` | `8cf88a3` (2 commits behind local) | **`b5ba809`** (local, remote and superproject gitlink agree) |
+| `release.manifest.json` description (en/ko) | 68 dictionaries / 3,019 strings, DSH `0.2.2-alpha.2` | **74 dictionaries / 3,843 strings, DSH `0.2.2-rc.1`** |
+| `release.manifest.json` release notes | v0.2.4 first-run onboarding text | **v0.0.1-rc.1 regeneration text** |
+| Superproject `.gitmodules` url | `linuxsung/dsh-korean-locale` (301 redirect) | **`Nolitor/dsh-korean-locale`** |
+| Superproject gitlink | `16cd630` (existed on no remote) | **`b5ba809`** (pushed) |
+
+Verified after the push: a fresh `git clone --recurse-submodules` of the
+repository resolves and `node scripts/verify.mjs` reports 74 namespaces /
+3,843 keys. `npm run verify` was re-run before the commit and stayed green.
+
+Not changed, and why:
+
+- `$schema` (`../../release-harness/schema/release.manifest.schema.json`) is
+  unresolvable — the path is one level too shallow *and* the target directory is
+  empty. It is left as-is because the sibling published repository
+  (`Nolitor/dsh-sidebar-manager`) uses the identical path, so this is a
+  workspace-wide convention decision, not a per-track defect. Owner decision
+  needed.
+- `NOTICE:11` still says `Base version: DSH 0.2.2-alpha.2`. Left for the owner
+  because the NOTICE is an attribution document, not release metadata.
+
 ## 0.0.1-rc.1 — regenerated against DSH 0.2.2-rc.1; owner version ladder — 2026-11-05
 
 Owner decision (2026-11-05): every `@nolit` track reports `0.0.1-rc.N`, and the pack must be
