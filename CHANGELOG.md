@@ -4,7 +4,77 @@ Notable changes to `@nolit/dsh-korean-locale`. English is the default
 language; the Korean companion is [CHANGELOG.ko.md](CHANGELOG.ko.md).
 Versions follow [Semantic Versioning](https://semver.org/).
 
-Current version: `0.0.1-rc.1`
+Current version: `0.0.1-rc.4`
+
+## 0.0.1-rc.4 — regenerated against DSH 0.2.2-rc.3; rc ladder corrected — 2026-11-14
+
+The pack had stayed at `0.0.1-rc.1` while two later sessions changed its files without
+incrementing the history marker, and one of those sessions left a corrupted `README.md`
+(`v0.0.1-0.0.1-rc.1`, `sou0.0.1-rc.1`, `a0.0.1-rc.1ives` — a naive global replacement of the
+`rc` token). This entry fixes the ladder and the corruption, and regenerates the dictionary
+snapshot against the running rc.3 runtime.
+
+Measured before → after (extracted from the installed `0.2.2-rc.3` client bundles with
+`scripts/extract-dictionaries.mjs`; the extractor executes each bundle in a `node:vm` sandbox,
+so `...spread` bases and interpolated values resolve instead of being dropped):
+
+| Surface | Before (rc.1 pack) | After (rc.3) |
+| :--- | :--- | :--- |
+| Namespaces | 74 | **77** |
+| Keys | 3,843 | **4,253** |
+| New rc.3 namespaces | — | `cuaPermissions` 66, `deepseekChatImport` 31, `account.notifications` 1 |
+| New strings translated | — | **461** (362 in surviving namespaces + 98 in the new ones + `contextMenu.back`) |
+| Retired namespaces removed | — | none — see the extraction blind spot below |
+| Retired keys in surviving namespaces | — | 0 |
+| Placeholder repairs | `pluginManager.updateStepInstalling`, `settings.webSearch.baseUrlHint` | `{source}` / `{path}` restored |
+| Version | `0.0.1-rc.1` | **`0.0.1-rc.4`** |
+| `npm run verify` | 74 / 3,843 | **77 / 4,253**, 0 missing, 0 extra, 0 placeholder mismatches, en/zh parity 0 |
+
+Version ladder (owner instruction: the `rc.<n>` suffix is the agent's history marker, the numeric
+part `0.0.1` is owner-gated): rc.1 = 2026-11-05 reset; the 2026-11-06 metadata session changed
+`release.manifest.json` and `README.md` without bumping (should have been rc.2); the 2026-11-13
+session rewrote both READMEs, corrupted `README.md`, and did not bump (should have been rc.3);
+this is the fourth session → **rc.4**. The corrupted README is restored from `HEAD` and then
+updated for rc.3 rather than patched in place.
+
+### Extraction blind spot found after the first regeneration
+
+The first regeneration dropped five namespaces (`schedule.manager` 215 keys,
+`permission.access` 17, `directory-browser` 13, `inspectorPanel` 5, `contextMenu` 1) because
+rc.3 registers them with a **variable payload** (`locale.register(NS, dictionaries)`), the
+**three-argument form** (`locale.register(NS, locale, dict)`), or from `lib/client.page.js`
+instead of `lib/client.js`. A parser that only accepts an inline object literal cannot bind the
+`en`/`zh` dictionaries for those calls, so they looked retired while remaining live in the GUI.
+That is a silent regression: `verify.mjs` stays green because it only checks internal
+consistency. The extractor now resolves all five shapes (and positional const redefinitions),
+and the committed pack carries them again — 237 of the 252 strings are the existing rc.1 Korean
+restored verbatim; only `contextMenu.back` is new.
+
+Tooling and review:
+
+- `scripts/extract-dictionaries.mjs` added (contributed by the OpenCode/MiniMax subagent):
+  executes the installed client bundles in a sandbox and emits `en.json`, `zh.json`, and a
+  parity report.
+- The workspace's `scripts/measure-locale-delta.mjs` was updated for the minified rc.3 bundle
+  shape (backtick literals, `ctx.effect(() => ctx.locale.register(...))`, `...spread` bases).
+  Before the fix it reported 0 namespaces against rc.3.
+- Korean wording: drafted by the OpenCode/MiniMax pipeline and independently translated/reviewed
+  by **Gemini 4 Hydrogen** (466/466 keys, plus a 20-term glossary), then merged per key with
+  placeholder and terminology checks. **EXAONE `k-exaone_v2.5` did not complete**: the provider
+  declares no subagent surface (the generic subagent route fails), and the direct
+  OpenAI-compatible endpoint answered `/v1/chat/completions` with
+  `429 rate_limit_exceeded` plus multi-minute stalls, so a full or sampled comparison could not be
+  produced. The EXAONE half of the requested two-model comparison remains open.
+- `verify.mjs` now asserts 77 namespaces / 4,253 keys and the `@deepseek-ai/dsh 0.2.2-rc.3`
+  source commit.
+
+Not changed, and why:
+
+- `engines.dsh` stays `>=0.2.2-alpha.2 <0.3.0`; 0.2.2-rc.3 is inside that declared window.
+- `NOTICE:11` still records `Base version: DSH 0.2.2-alpha.2`; the NOTICE is an attribution
+  document owned by the Master, not release metadata.
+- `$schema` in `release.manifest.json` remains unresolvable, matching the sibling published
+  repository (workspace-wide convention decision, not a per-track defect).
 
 ## 0.0.1-rc.1 — published to GitHub; release metadata corrected — 2026-11-06
 

@@ -73,9 +73,9 @@ for (const family of ['"Pretendard Variable"', 'Pretendard', '"SUIT Variable"', 
 // --- coverage snapshot ------------------------------------------------------
 const namespaces = Object.keys(dicts)
 assert.equal(namespaces.length, coverage.namespaces)
-assert.equal(namespaces.length, 74)
+assert.equal(namespaces.length, 77)
 assert.equal(Object.values(dicts).reduce((n, d) => n + Object.keys(d).length, 0), coverage.keys)
-assert.equal(coverage.keys, 3843)
+assert.equal(coverage.keys, 4253)
 assert.equal(
   coverage.report.filter(
     (row) => row.missing || row.extra || row.phBad || row.zhMissing || row.zhExtra || row.zhPhBad,
@@ -83,7 +83,7 @@ assert.equal(
   0,
 )
 assert.ok(coverage.report.every((row) => row.zhKeys === null || row.zhKeys === row.enKeys))
-assert.equal(coverage.source.commit, '@deepseek-ai/dsh 0.2.2-rc.1')
+assert.equal(coverage.source.commit, '@deepseek-ai/dsh 0.2.2-rc.3')
 
 // --- generated artifact contract -------------------------------------------
 let captured
@@ -152,9 +152,9 @@ for (const ns of namespaces) {
 assert.equal(registered.get('common').ok, '확인')
 assert.equal(registered.get('settings.locale')['language.title'], '언어')
 assert.match(registered.get('chat')['message.stepProcess.thinking'], /[가-힣]/)
-// rc.1 namespaces the alpha.3 snapshot did not have must be registered too.
-for (const ns of ['stats', 'liveshare', 'forgePanel', 'creationRecommendations', 'contextMenu', 'actionCards', 'pluginRecommendations']) {
-  assert.ok(registered.has(ns), `rc.1 namespace ${ns} must be registered`)
+// rc.3 namespaces the rc.1 snapshot did not have must be registered too.
+for (const ns of ['account.notifications', 'cuaPermissions', 'deepseekChatImport', 'stats', 'liveshare', 'forgePanel', 'contextMenu', 'directory-browser', 'inspectorPanel', 'permission.access', 'schedule.manager']) {
+  assert.ok(registered.has(ns), `rc.3 namespace ${ns} must be registered`)
 }
 
 // --- scoped typography injection ------------------------------------------

@@ -67,14 +67,15 @@
       },
       "versions": [
         {
-          "version": "0.0.1-rc.1",
-          "publishTimestamp": 1793284234,
+          "version": "0.0.1-rc.4",
+          "publishTimestamp": 1794599808,
           "source": {
             "type": "npm"
           },
           "engines": {
             "dsh": ">=0.2.2-alpha.2 <0.3.0"
-          }
+          },
+          "dsh": {}
         }
       ]
     }

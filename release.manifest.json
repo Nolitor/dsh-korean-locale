@@ -12,8 +12,8 @@
     "homepage": "https://github.com/Nolitor/dsh-korean-locale#readme",
     "repository": "https://github.com/Nolitor/dsh-korean-locale",
     "description": {
-      "en": "Korean language pack for DeepSeek Harness: 74 dictionaries / 3,843 strings regenerated for DSH 0.2.2-rc.1, scoped Korean font stack, marketplace-ready.",
-      "ko": "딥시크 하네스 한국어 언어팩: DSH 0.2.2-rc.1 기준 74개 사전 / 3,843개 문자열, 한국어 전용 폰트 스택, 마켓 등록 지원."
+      "en": "Korean language pack for DeepSeek Harness: 77 dictionaries / 4,253 strings regenerated for DSH 0.2.2-rc.3, scoped Korean font stack, marketplace-ready.",
+      "ko": "딥시크 하네스 한국어 언어팩: DSH 0.2.2-rc.3 기준 77개 사전 / 4,253개 문자열, 한국어 전용 폰트 스택, 마켓 등록 지원."
     }
   },
   "source": {
@@ -48,7 +48,7 @@
         "typography"
       ],
       "release": {
-        "notes": "v0.0.1-rc.1 regenerates the pack against DSH 0.2.2-rc.1: 74 dictionaries / 3,843 strings (7 new rc.1 namespaces translated, 76 keys added, 66 retired keys and 2 retired namespaces removed), with 0 missing, 0 extra and 0 placeholder mismatches against the installed runtime. English README.md remains the default document with a reciprocal Korean README.ko.md; CHANGELOG.md and CHANGELOG.ko.md record the version history."
+        "notes": "v0.0.1-rc.4 regenerates the pack against DSH 0.2.2-rc.3: 77 dictionaries / 4,253 strings, 0 missing, 0 extra and 0 placeholder mismatches against the installed runtime (five of the namespaces are registered with variable or three-argument payloads that a naive parser reports as retired). Korean wording was reviewed by Gemini 4 Hydrogen; the EXAONE comparison route was unavailable (429 rate limit). English README.md remains the default document with a reciprocal Korean README.ko.md; CHANGELOG.md and CHANGELOG.ko.md record the version history."
       }
     }
   }
