@@ -46,7 +46,8 @@ resolved by the engine. Static regex parsing was measured to lose entire spread 
   by **Gemini 4 Hydrogen** (466/466 keys + glossary), merged with placeholder/terminology checks.
   **EXAONE `k-exaone_v2.5` could not complete** (no subagent surface; direct API returned
   `429 rate_limit_exceeded` and multi-minute stalls) — the two-model comparison is half open.
-- Repaired the corrupted `README.md` (`v0.0.1-0.0.1-rc.1`, `sou0.0.1-rc.1`, `a0.0.1-rc.1ives`) by
+- Repaired the corrupted `README.md` (`v0.0.1-rc.1` misprinted as a doubled scheme, `source`
+  and `archives` mangled the same way) by
   restoring from `HEAD` and re-applying the rc.3 update, instead of patching the corruption.
 - Fixed the workspace measurement tool `scripts/measure-locale-delta.mjs` for the minified rc.3
   bundle shape; it had been reporting 0 namespaces.

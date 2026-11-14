@@ -10,8 +10,9 @@ Current version: `0.0.1-rc.4`
 
 The pack had stayed at `0.0.1-rc.1` while two later sessions changed its files without
 incrementing the history marker, and one of those sessions left a corrupted `README.md`
-(`v0.0.1-0.0.1-rc.1`, `sou0.0.1-rc.1`, `a0.0.1-rc.1ives` — a naive global replacement of the
-`rc` token). This entry fixes the ladder and the corruption, and regenerates the dictionary
+(`v0.0.1-rc.1` misprinted as a doubled scheme, `source` and `archives` mangled the same way — a
+naive global replacement of the `rc` token). This entry fixes the ladder and the corruption, and
+regenerates the dictionary
 snapshot against the running rc.3 runtime.
 
 Measured before → after (extracted from the installed `0.2.2-rc.3` client bundles with
